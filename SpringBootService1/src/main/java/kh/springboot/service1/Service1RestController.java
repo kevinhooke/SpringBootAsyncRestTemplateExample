@@ -79,21 +79,19 @@ public class Service1RestController {
 		
 		ExampleResponse result = new ExampleResponse();
 		//calling .get() on the ListenableFuture blocks until the result is available
+		
 		try {
-			result.setResult1(((HttpEntity<Example2Response>) result2.get()).getBody().getResult());
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
+			result.setResult1(result2.get().getBody().getResult());
+		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
 		
 		try {
 			result.setResult2(result3.get().getBody().getResult());
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (ExecutionException e) {
+		} catch (InterruptedException | ExecutionException e) {
 			e.printStackTrace();
 		}
+		
 		return new ResponseEntity<ExampleResponse>(result, HttpStatus.OK);
 	}
 	
