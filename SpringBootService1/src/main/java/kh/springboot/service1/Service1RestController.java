@@ -22,7 +22,7 @@ import kh.springboot.service1.domain.ExampleResponse;
 public class Service1RestController {
 	
 	@Autowired
-    private RestTemplate restTemplate;
+	private RestTemplate restTemplate;
 	
 	@Autowired
 	private AsyncRestTemplate asyncRestTemplate;
@@ -30,7 +30,7 @@ public class Service1RestController {
 	
 	/**
 	 * Calls each of the 2 other services synchronously. Each service sleeps for 2 seconds, so total time
-	 * before this method completes is approach 4 seconds.
+	 * before this method completes is approx 4 seconds.
 	 * 
 	 * @return
 	 * @throws RestClientException
